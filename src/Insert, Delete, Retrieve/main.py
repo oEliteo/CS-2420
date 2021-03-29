@@ -100,4 +100,8 @@ def deleteStudent(xList, SSN):
     if (initialLength == len(xList)):
         print("This SSN was marked for deletion, but was not found in the list:",str(SSN))
 
+gTotalAge = 0
+def addAges(item):
+    gTotalAge += int(item.getAge())
+    
 main()

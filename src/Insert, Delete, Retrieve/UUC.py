@@ -15,7 +15,7 @@ class UUC:
         return True
     
     def delete(self, item):
-        if not self.Exists(item):
+        if not self.exists(item):
             return False
         
         if self.mFirst.mItem == item:
@@ -26,6 +26,7 @@ class UUC:
         while current.mNext.mItem != item:
             current = current.mNext
         current.mNext = current.mNext.mNext
+        return True
         
     def retrieve(self, item):
         current = self.mFirst
@@ -50,9 +51,9 @@ class UUC:
             count += 1
         return count
     
-    def traverse(self, callBackFunction):
+    def traverse(self, callBackFunction, data):
         current = self.mFirst
         while current != None:
-            callBackFunction(current.mItem)
+            callBackFunction(current.mItem, data)
             current = current.mNext
         

@@ -43,4 +43,10 @@ class Student():
         self.setEmail(email)
         self.setAge(age)
         
+    def __eq__(self, rhs):
+        if self.getSSN() == rhs.getSSN():
+            return True
+        else:
+            return False
+        
         
