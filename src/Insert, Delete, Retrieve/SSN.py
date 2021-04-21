@@ -13,3 +13,7 @@ class SSN:
             return True
         else:
             return False
+    
+    def __int__(self):
+        self_as_int = self.mSSN.strip("-")
+        return self_as_int

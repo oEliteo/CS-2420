@@ -49,4 +49,24 @@ class Student():
         else:
             return False
         
+    def __lt__(self, rhs):
+        num1 = self.getSSN().strip("-")
+        num2 = rhs.getSSN().strip("-")
+        if(num1 < num2):
+            return True
+        else:
+            return False
         
+    def __gt__(self, rhs):
+        num1 = self.getSSN().strip("-")
+        num2 = rhs.getSSN().strip("-")
+        if(num1 > num2):
+            return True
+        else:
+            return False
+    
+    def __int__(self):
+        self_as_int = self.getSSN().strip("-")
+        return self_as_int
+            
+    
