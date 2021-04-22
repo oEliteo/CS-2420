@@ -66,7 +66,7 @@ class Student():
             return False
     
     def __int__(self):
-        self_as_int = self.getSSN().strip("-")
+        self_as_int = int(self.getSSN().replace("-", ''))
         return self_as_int
             
     

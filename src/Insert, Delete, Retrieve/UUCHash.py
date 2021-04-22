@@ -32,18 +32,50 @@ class UUC:
             return False
         key = int(item)
         index = key % len(self.mTable)
+        while self.mTable[index]:
+            index += 1
+            if index >= len(self.mTable):
+                index -= len(self.mTable)
+        self.mSize += 1
+        return True
+                
+                
     
     def delete(self, item):
         if not self.exists(item):
             return False
+        key = int(item)
+        index = key % len(self.mTable)
+        while not (self.mTable[index] and self.mTable[index] == item):
+            index += 1
+            if index >= len(self.mTable):
+                index -= len(self.mTable)
+        self.mTable[index] = False
+        self.mSize -= 1
+        return True
     
     def retrieve(self, item):
-        current = self.mFirst
-        if self.exists(item):
-            return self.retrieveRecursive(current, item)        
+        if not self.exists(item):
+            return None
+        key = int(item)
+        index = key % len(self.mTable)
+        while not (self.mTable[index] and self.mTable[index] == item):
+            index += 1
+            if index >= len(self.mTable):
+                index -= len(self.mTable)
+            return self.mTable[index]
             
     def exists(self, item):
-        return self.existsRecursive(item, self.mFirst)
+        key = int(item)
+        index = key % len(self.mTable)
+        while True:
+            if self.mTable[item] is None:
+                return False
+            if self.mTable[index] and self.mTable[index] == item
+                return False
+            index += 1
+            if index >= len(self.mTable):
+                index = 0
             
     def size(self):
         return self.mSize
