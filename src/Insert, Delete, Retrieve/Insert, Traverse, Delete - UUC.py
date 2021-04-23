@@ -2,6 +2,7 @@ import Student
 import SSN
 import timeit
 from UUC import *
+from UUCHash import *
 
 
 def main():
@@ -12,7 +13,7 @@ def main():
     file0 = open("InsertNamesMedium.txt", "r")
     file1 = open("DeleteNamesMedium.txt", "r")
     file2 = open("RetrieveNamesMedium.txt", "r")
-    studentList = UUC()
+    studentList = UUCH(300000)
     start = timeit.default_timer()
     duplicates = 0
     for line in file0:

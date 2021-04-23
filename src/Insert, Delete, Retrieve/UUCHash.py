@@ -2,7 +2,7 @@ import math
 
 def isPrime(x):
     
-    s = int(sqrt(x))
+    s = int(math.sqrt(x))
     for i in range(2, s+1):
         if x % i == 0:
             return False
@@ -14,16 +14,16 @@ class Node:
         self.mL = None
         self.mR = None
 
-class UUC:
+class UUCH:
     def __init__(self, neededSize):
         actualSize = 2 * neededSize + 1
         self.mSize = 0
         while not isPrime(actualSize):
             actualSize += 2
         
-        self.mTable = []
-        for i in range(actualSize):
-            self.mTable.append(None)
+        self.mTable = [None] * actualSize
+        print("Table:",self.mTable)
+        
             
             
         
@@ -69,10 +69,10 @@ class UUC:
         key = int(item)
         index = key % len(self.mTable)
         while True:
-            if self.mTable[item] is None:
+            if self.mTable[index] is None:
                 return False
-            if self.mTable[index] and self.mTable[index] == item
-                return False
+            if self.mTable[index] and self.mTable[index] == item:
+                return True
             index += 1
             if index >= len(self.mTable):
                 index = 0
@@ -81,4 +81,7 @@ class UUC:
         return self.mSize
     
     def traverse(self, callBackFunction, data):
+        for i in range(len(self.mTable)):
+            if self.mTable[i]:
+                callBackFunction(data)
         

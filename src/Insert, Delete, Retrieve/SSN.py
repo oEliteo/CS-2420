@@ -15,5 +15,5 @@ class SSN:
             return False
     
     def __int__(self):
-        self_as_int = int(elf.mSSN.replace("-", ''))
+        self_as_int = int(self.mSSN.replace("-", ''))
         return self_as_int
