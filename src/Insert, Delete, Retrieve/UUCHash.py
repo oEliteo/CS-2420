@@ -21,11 +21,7 @@ class UUCH:
         while not isPrime(actualSize):
             actualSize += 2
         
-        self.mTable = [None] * actualSize
-        print("Table:",self.mTable)
-        
-            
-            
+        self.mTable = [None] * actualSize     
         
     def insert(self, item):
         if self.exists(item):
@@ -37,6 +33,7 @@ class UUCH:
             if index >= len(self.mTable):
                 index -= len(self.mTable)
         self.mSize += 1
+        self.mTable[index] = item
         return True
                 
                 
@@ -63,7 +60,7 @@ class UUCH:
             index += 1
             if index >= len(self.mTable):
                 index -= len(self.mTable)
-            return self.mTable[index]
+        return self.mTable[index]
             
     def exists(self, item):
         key = int(item)
@@ -75,7 +72,7 @@ class UUCH:
                 return True
             index += 1
             if index >= len(self.mTable):
-                index = 0
+                index -= len(self.mTable)
             
     def size(self):
         return self.mSize
@@ -83,5 +80,5 @@ class UUCH:
     def traverse(self, callBackFunction, data):
         for i in range(len(self.mTable)):
             if self.mTable[i]:
-                callBackFunction(data)
+                callBackFunction(self.mTable[i], data)
         

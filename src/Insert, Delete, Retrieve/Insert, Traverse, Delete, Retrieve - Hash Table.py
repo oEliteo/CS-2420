@@ -12,7 +12,7 @@ def main():
     file0 = open("InsertNamesMedium.txt", "r")
     file1 = open("DeleteNamesMedium.txt", "r")
     file2 = open("RetrieveNamesMedium.txt", "r")
-    studentList = UUC(300000)
+    studentList = UUCH(300000)
     start = timeit.default_timer()
     duplicates = 0
     for line in file0:
